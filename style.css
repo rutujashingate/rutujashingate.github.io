@@ -225,6 +225,18 @@ section {
   border-radius: 2rem;
 }
 
+.gap1{
+  padding-top: 2rem;
+}
+
+.gap2{
+  padding-top: 7.4rem;
+}
+
+.gap3{
+  padding-top: 12.95rem;
+}
+
 .btn-color-1,
 .btn-color-2 {
   border: rgb(53, 53, 53) 0.1rem solid;
@@ -289,6 +301,10 @@ section {
   bottom: 2.5rem;
 }
 
+.imgFit {
+  height: 200px;
+  width: 200px;
+}
 .details-container {
   padding: 1.5rem;
   flex: 1;
