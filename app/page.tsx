@@ -76,9 +76,9 @@ const MinimalPortfolio = () => {
       category: "Flower Catalogue App",
       year: "2024",
       description: "Self-taught flower catalogue app with intuitive organized design.",
-      image: "/images/floretta-app-new.jpeg",
+      image: "/images/floretta-app.png",
       link: "https://www.behance.net/gallery/220103375/UIUX-Case-Study-Flower-Catalogue-App",
-      color: "#9b59b6",
+      color: "#ff9a9e",
       tags: ["UI Design", "Self-taught", "Mobile App"],
     },
   ]
@@ -816,7 +816,7 @@ const MinimalPortfolio = () => {
         transition={{ delay: 1, duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm font-light text-black/50">© 2024 Rutuja Shingate</div>
+          <div className="text-sm font-light text-black/50">© 2025 Rutuja Shingate</div>
           <div className="text-sm font-light text-black/50">Designed & Developed with ♥</div>
         </div>
       </motion.footer>
