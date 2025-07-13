@@ -1,0 +1,491 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 84% 4.9%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    overflow-x: hidden;
+  }
+}
+
+/* Premium Typography */
+.font-display {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 100;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-feature-settings: "kern", "liga", "ss01", "ss02";
+}
+
+.font-heading {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-feature-settings: "kern", "liga", "ss01";
+}
+
+.font-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+/* Enhanced Font Rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures contextual;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+}
+
+/* Outstanding Design Elements */
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #000000 0%, #667eea 50%, #000000 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Magnetic Hover Effects */
+.magnetic-element {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic-element:hover {
+  transform: scale(1.02);
+}
+
+/* Staggered Letter Animations */
+.staggered-text span {
+  display: inline-block;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.staggered-text:hover span {
+  transform: translateY(-3px) scale(1.1);
+}
+
+.staggered-text span:nth-child(odd) {
+  transition-delay: 0.05s;
+}
+
+.staggered-text span:nth-child(even) {
+  transition-delay: 0.1s;
+}
+
+/* Dynamic Underlines */
+.dynamic-underline {
+  position: relative;
+  overflow: hidden;
+}
+
+.dynamic-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #000, transparent);
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dynamic-underline:hover::after {
+  width: 100%;
+}
+
+/* Morphing Elements */
+.morphing-element {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.morphing-element:hover {
+  border-radius: 50% 20% 50% 20%;
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* Floating Geometric Elements */
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+}
+
+/* Shimmer Effect */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease-in-out;
+}
+
+.shimmer-effect:hover::before {
+  left: 100%;
+}
+
+/* Liquid Button Effect */
+.liquid-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+}
+
+.liquid-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.liquid-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Selection Styles */
+::selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(102, 126, 234, 0.2);
+  color: inherit;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Focus Styles */
+*:focus {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gradient-text {
+    animation: none;
+    background: #000000;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+  }
+
+  .floating-element {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  * {
+    border-color: #000 !important;
+  }
+
+  .gradient-text {
+    background: #000000;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+  }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  .gradient-text {
+    background: transparent;
+    -webkit-text-fill-color: black;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes morphShape {
+  0%,
+  100% {
+    border-radius: 50%;
+  }
+  25% {
+    border-radius: 25% 75% 50% 50%;
+  }
+  50% {
+    border-radius: 50% 25% 75% 50%;
+  }
+  75% {
+    border-radius: 75% 50% 25% 50%;
+  }
+}
+
+/* Utility Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-morph {
+  animation: morphShape 8s ease-in-out infinite;
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Layout Utilities */
+.aspect-golden {
+  aspect-ratio: 1.618 / 1;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* Text Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Spacing Utilities */
+.space-y-fluid > * + * {
+  margin-top: clamp(1rem, 4vw, 2rem);
+}
+
+.space-x-fluid > * + * {
+  margin-left: clamp(1rem, 4vw, 2rem);
+}
+
+/* Container Queries Support */
+@container (min-width: 768px) {
+  .container-md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+/* Modern CSS Features */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-modern {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* Touch Optimizations */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Enhanced Mobile Styles */
+@media (max-width: 768px) {
+  .gradient-text {
+    background-size: 100% 100%;
+  }
+
+  .magnetic-element:hover {
+    transform: none;
+  }
+
+  .morphing-element:hover {
+    transform: none;
+    border-radius: initial;
+  }
+}
+
+/* Dark Mode Preparation */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
