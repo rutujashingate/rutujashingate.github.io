@@ -44,15 +44,15 @@ const MinimalPortfolio = () => {
       year: "2024",
       description: "Research-driven mental health platform with 92% user satisfaction",
       image: "/images/calmnest-app.png",
-      link: "https://www.figma.com/proto/ZVpEvxcY9xrxIGaACtSAUr/CalmNest?node-id=1-137&p=f&t=4do51dlRAnUDmWzR-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A127",
+      link: "https://www.figma.com/proto/ZVpEvxcY9xrxIGaACtSAUr/CalmNest?node-id=1-127&t=pkmQTE3YUgtNsjOD-1",
       color: "#667eea",
       tags: ["UX Research", "Mobile Design", "Accessibility"],
     },
     {
       id: "impact",
       title: "Impact Studio",
-      category: "Agency Redesign",
-      year: "2024",
+      category: "University Research Website",
+      year: "2025",
       description: "Complete digital transformation with 150% engagement boost",
       image: "/images/impact-studio.png",
       link: "https://www.behance.net/gallery/229764377/UIUX-CASE-STUDY-IMPACT-STUDIO",
@@ -63,7 +63,7 @@ const MinimalPortfolio = () => {
       id: "library",
       title: "OSU Library",
       category: "Academic UX",
-      year: "2024",
+      year: "2025",
       description: "University library redesign improving efficiency by 40%",
       image: "/images/osu-library.png",
       link: "https://www.behance.net/gallery/229421389/UIUX-Case-study-%28Oregon-State-University-Library%29",
@@ -74,11 +74,11 @@ const MinimalPortfolio = () => {
       id: "floretta",
       title: "Floretta",
       category: "Flower Catalogue App",
-      year: "2024",
+      year: "2025",
       description: "Self-taught flower catalogue app with intuitive organized design.",
       image: "/images/floretta-app.png",
       link: "https://www.behance.net/gallery/220103375/UIUX-Case-Study-Flower-Catalogue-App",
-      color: "#ff9a9e",
+      color: "#f5f1e8",
       tags: ["UI Design", "Self-taught", "Mobile App"],
     },
   ]
@@ -273,8 +273,8 @@ const MinimalPortfolio = () => {
 
             {!isMobile ? (
               <div className="flex items-center gap-12">
-                {["ABOUT", "WORK", "CONTACT"].map((item, index) => {
-                  const section = ["about", "work", "contact"][index]
+                {["ABOUT", "WORK","RESUME","CONTACT"].map((item, index) => {
+                  const section = ["about", "work","resume", "contact"][index]
                   return (
                     <motion.div key={item} className="relative">
                       <AnimatedText
@@ -316,8 +316,8 @@ const MinimalPortfolio = () => {
               </div>
 
               <div className="space-y-8">
-                {["ABOUT", "WORK", "CONTACT"].map((item, index) => {
-                  const section = ["about", "work", "contact"][index]
+                {["ABOUT", "WORK","RESUME" , "CONTACT"].map((item, index) => {
+                  const section = ["about", "work", "resume","contact"][index]
                   return (
                     <motion.div key={item}>
                       <AnimatedText
@@ -584,6 +584,24 @@ const MinimalPortfolio = () => {
             </motion.section>
           )}
 
+
+{currentSection === "resume" && (
+            <motion.section
+            key="resume"
+            className="min-h-screen flex items-center justify-center px-6 py-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <iframe
+              src="/resume.pdf"
+              className="w-full h-[90vh] border rounded"
+              title="Resume PDF"
+            />
+          </motion.section>
+          )}
+
           {currentSection === "work" && (
             <motion.section
               key="work"
@@ -621,12 +639,12 @@ const MinimalPortfolio = () => {
                       onClick={() => window.open(project.link, "_blank")}
                     >
                       <div
-                        className={`relative overflow-hidden rounded-2xl mb-6 ${project.id === "floretta" ? "bg-[#F5F1E8]" : "bg-[#F5F1E8]"}`}
+                        className={`relative overflow-hidden rounded-2xl mb-6`}
                       >
                         <motion.img
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
-                          className={`w-full h-64 object-contain ${project.id === "floretta" ? "p-0" : "p-4"}`}
+                          className={`w-full h-64 object-contain`}
                           whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
                           transition={{ duration: 0.5 }}
                         />
@@ -816,7 +834,7 @@ const MinimalPortfolio = () => {
         transition={{ delay: 1, duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm font-light text-black/50">© 2025 Rutuja Shingate</div>
+          <div className="text-sm font-light text-black/50">© 2024 Rutuja Shingate</div>
           <div className="text-sm font-light text-black/50">Designed & Developed with ♥</div>
         </div>
       </motion.footer>
