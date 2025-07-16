@@ -711,14 +711,16 @@ const MinimalPortfolio = () => {
                       <div className="space-y-6">
                         <div>
                           <h4 className="text-lg font-medium mb-3">Experience</h4>
-                          <div className="space-y-3">
+                          <div className="space-y-4">
                             <div className="border-l-2 border-black/20 pl-4">
-                              <div className="font-medium">UX Designer</div>
-                              <div className="text-sm text-black/60">Freelance • 2024-Present</div>
+                              <div className="font-medium">Web Developer Intern</div>
+                              <div className="text-sm text-black/60">IMPACT STUDIO - OREGON STATE UNIVERSITY</div>
+                              <div className="text-xs text-black/50 mt-1">July 2024 - Jun 2025</div>
                             </div>
                             <div className="border-l-2 border-black/20 pl-4">
-                              <div className="font-medium">Research Assistant</div>
-                              <div className="text-sm text-black/60">OSU • 2023-2024</div>
+                              <div className="font-medium">UI/UX Intern</div>
+                              <div className="text-sm text-black/60">TERN New York</div>
+                              <div className="text-xs text-black/50 mt-1">Mar 2025 - May 2025</div>
                             </div>
                           </div>
                         </div>
