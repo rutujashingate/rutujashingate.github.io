@@ -587,19 +587,201 @@ const MinimalPortfolio = () => {
 
 {currentSection === "resume" && (
             <motion.section
-            key="resume"
-            className="min-h-screen flex items-center justify-center px-6 py-20"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <iframe
-              src="/resume.pdf"
-              className="w-full h-[90vh] border rounded"
-              title="Resume PDF"
-            />
-          </motion.section>
+              key="resume"
+              className="min-h-screen px-6 py-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="max-w-6xl mx-auto">
+                <motion.div className="text-center mb-12" variants={fadeIn} initial="initial" animate="animate">
+                  <AnimatedText
+                    text="RESUME"
+                    className="text-5xl md:text-6xl font-light mb-6 tracking-tight gradient-text"
+                    gradient={true}
+                  />
+                  <p className="text-xl font-light text-black/70 max-w-2xl mx-auto">
+                    My professional journey, skills, and experience in UX design and development
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="grid lg:grid-cols-3 gap-8"
+                  variants={stagger}
+                  initial="initial"
+                  animate="animate"
+                >
+                  {/* PDF Viewer - Takes 2/3 on desktop, full width on mobile */}
+                  <motion.div 
+                    className="lg:col-span-2"
+                    variants={fadeIn}
+                  >
+                    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-black/10">
+                      {/* PDF Header */}
+                      <div className="bg-gradient-to-r from-black/5 to-black/10 px-6 py-4 border-b border-black/10">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span className="text-sm font-medium text-black/70 ml-3">resume.pdf</span>
+                          </div>
+                          <motion.button
+                            onClick={() => window.open("/resume.pdf", "_blank")}
+                            className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm font-light hover:bg-black/80 transition-colors"
+                            whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
+                            whileTap={!shouldReduceMotion ? { scale: 0.95 } : {}}
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                            Open Full
+                          </motion.button>
+                        </div>
+                      </div>
+
+                      {/* PDF Content */}
+                      <div className="relative">
+                        {/* Desktop PDF Viewer */}
+                        <div className="hidden md:block">
+                          <iframe
+                            src="/resume.pdf"
+                            className="w-full h-[70vh] border-0"
+                            title="Resume PDF"
+                          />
+                        </div>
+
+                        {/* Mobile PDF Preview */}
+                        <div className="md:hidden">
+                          <div className="p-6">
+                            <div className="bg-gradient-to-br from-black/5 to-black/10 rounded-xl p-8 text-center">
+                              <motion.div
+                                className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mx-auto mb-4"
+                                animate={!shouldReduceMotion ? { 
+                                  rotate: [0, 5, -5, 0],
+                                  scale: [1, 1.05, 1]
+                                } : {}}
+                                transition={{ 
+                                  duration: 2, 
+                                  repeat: Number.POSITIVE_INFINITY,
+                                  ease: "easeInOut"
+                                }}
+                              >
+                                <ExternalLink className="w-8 h-8 text-black/60" />
+                              </motion.div>
+                              <h3 className="text-xl font-light mb-2">Resume PDF</h3>
+                              <p className="text-black/60 text-sm mb-6">
+                                Tap below to view or download my complete resume
+                              </p>
+                              <div className="flex flex-col gap-3">
+                                <motion.button
+                                  onClick={() => window.open("/resume.pdf", "_blank")}
+                                  className="flex items-center justify-center gap-2 px-6 py-3 bg-black text-white rounded-lg font-light"
+                                  whileHover={!shouldReduceMotion ? { scale: 1.02 } : {}}
+                                  whileTap={!shouldReduceMotion ? { scale: 0.98 } : {}}
+                                >
+                                  <Eye className="w-4 h-4" />
+                                  View Resume
+                                </motion.button>
+                                <motion.a
+                                  href="/resume.pdf"
+                                  download
+                                  className="flex items-center justify-center gap-2 px-6 py-3 border border-black/20 rounded-lg font-light hover:border-black/40 transition-colors"
+                                  whileHover={!shouldReduceMotion ? { scale: 1.02 } : {}}
+                                  whileTap={!shouldReduceMotion ? { scale: 0.98 } : {}}
+                                >
+                                  <ArrowUpRight className="w-4 h-4" />
+                                  Download PDF
+                                </motion.a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Quick Info Sidebar */}
+                  <motion.div 
+                    className="lg:col-span-1"
+                    variants={fadeIn}
+                  >
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-black/10">
+                      <h3 className="text-2xl font-light mb-6">Quick Info</h3>
+                      
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-medium mb-3">Experience</h4>
+                          <div className="space-y-3">
+                            <div className="border-l-2 border-black/20 pl-4">
+                              <div className="font-medium">UX Designer</div>
+                              <div className="text-sm text-black/60">Freelance • 2024-Present</div>
+                            </div>
+                            <div className="border-l-2 border-black/20 pl-4">
+                              <div className="font-medium">Research Assistant</div>
+                              <div className="text-sm text-black/60">OSU • 2023-2024</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-medium mb-3">Education</h4>
+                          <div className="border-l-2 border-black/20 pl-4">
+                            <div className="font-medium">MEng Computer Science</div>
+                            <div className="text-sm text-black/60">Oregon State University</div>
+                            <div className="text-xs text-black/50 mt-1">Human-Computer Interaction</div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-medium mb-3">Key Skills</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {["UX Research", "Figma", "Prototyping", "Accessibility", "Design Systems", "User Testing"].map((skill) => (
+                              <motion.span
+                                key={skill}
+                                className="px-3 py-1 text-xs bg-black/5 rounded-full font-light"
+                                whileHover={!shouldReduceMotion ? { scale: 1.05 } : {}}
+                              >
+                                {skill}
+                              </motion.span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-medium mb-3">Languages</h4>
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <span className="text-sm">English</span>
+                              <span className="text-sm text-black/60">Native</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm">Hindi</span>
+                              <span className="text-sm text-black/60">Fluent</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-sm">Marathi</span>
+                              <span className="text-sm text-black/60">Native</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <motion.div className="mt-8 pt-6 border-t border-black/10">
+                        <motion.button
+                          onClick={() => window.open("mailto:shingaterutuja21@gmail.com?subject=Resume Request&body=Hi Rutuja, I'd like to discuss opportunities with you.", "_blank")}
+                          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-black text-white rounded-lg font-light hover:bg-black/80 transition-colors"
+                          whileHover={!shouldReduceMotion ? { scale: 1.02 } : {}}
+                          whileTap={!shouldReduceMotion ? { scale: 0.98 } : {}}
+                        >
+                          <Mail className="w-4 h-4" />
+                          Get In Touch
+                        </motion.button>
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.section>
           )}
 
           {currentSection === "work" && (
@@ -834,7 +1016,7 @@ const MinimalPortfolio = () => {
         transition={{ delay: 1, duration: 0.6 }}
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm font-light text-black/50">© 2024 Rutuja Shingate</div>
+          <div className="text-sm font-light text-black/50">© 2025 Rutuja Shingate</div>
           <div className="text-sm font-light text-black/50">Designed & Developed with ♥</div>
         </div>
       </motion.footer>
